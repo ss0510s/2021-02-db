@@ -1,0 +1,34 @@
+<!-- 데이터 조회를 위한 테이블 구조 구현-->
+
+<h1>{{title1}}</h1>
+
+<table>
+    <tr>
+        <td>Dname</td>
+        <td>Dnumber</td>
+    </tr>
+    {{#each department}}
+    <tr>
+        <td>{{Dname}}</td>
+        <td>{{Dnumber}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+
+<h1>{{title2}}</h1>
+
+<table>
+    <tr>
+        <td>univ_num</td>
+        <td>univ_name</td>
+        <td>univ_address</td>
+    </tr>
+    {{#each univ}}
+    <tr>
+        <td>{{univ_num}}</td>
+        <td>{{univ_name}}</td>
+        <td>{{univ_address}}</td>
+    </tr>
+    {{/each}}
+</table>

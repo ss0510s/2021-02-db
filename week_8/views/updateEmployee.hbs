@@ -1,0 +1,37 @@
+<!--데이터 수정을 위한 테이블 구조 구현 -->
+<h1>{{title}}</h1>
+
+<table>
+    <tr>
+        <td>Fname</td>
+        <td>Minit</td>
+        <td>Lname</td>
+        <td>Ssn</td>
+        <td>Bdate</td>
+        <td>Address</td>
+        <td>Sex</td>
+        <td>Salary</td>
+        <td>Super_ssn</td>
+        <td>Dno</td>
+    </tr>
+    {{#each emp_res}}
+        <form method = "post" action = '/update/employee'>
+            <tr>
+                <td>{{Fname}}</td>
+                <td>{{Minit}}</td>
+                <td>{{Lname}}</td>
+                <!-- update시 where 조건으로 사용할 input요소 추가, 단 값이 변하지 않게 함 -->
+                <td><input type = "text" name = "ssn" value="{{Ssn}}" readonly
+                style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;"
+                ></td>
+                <td>{{Bdate}}</td>
+                <td>{{Address}}</td>
+                <td>{{Sex}}</td>
+                <td><input type = "text" name = "salary" placeholder="{{Salary}}"></td>
+                <td>{{Super_ssn}}</td>
+                <td>{{Dno}}</td>
+                <td><input type = "submit" value ="수정" formaction = "/update/employee"></td>
+            </tr>
+        </form>
+    {{/each}}
+</table>

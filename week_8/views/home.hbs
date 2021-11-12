@@ -1,0 +1,74 @@
+<!-- 데이터 삽입을 위한 form 구현 -->
+<h1>Employee 데이터 삽입</h1>
+
+<form name = "employee" method="post" action='/'>
+    <div>
+        <label far = "fname">Fname</label>
+        <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+        <input id="fname" name ="fname" type = "text" required placeholder = "Fname">
+    </div>
+        <div>
+        <label far = "minit">Minit</label>
+        <input id="minit" name ="minit" type = "text" placeholder = "Minit">
+    </div>
+    <div>
+        <label far = "lname">Lname</label>
+        <input id="lname" name ="lname" type = "text" required placeholder = "Lname">
+    </div>
+    <div>
+        <label far = "ssn">Ssn</label>
+        <input id="ssn" name ="ssn" type = "text" placeholder = "Ssn">
+    </div>
+    <div>
+        <label far = "bdate">Bdate</label>
+        <input id="bdate" name ="bdate" type = "text" placeholder = "Bdate">
+    </div>
+        <div>
+        <label far = "address">Address</label>
+        <input id="address" name ="address" type = "text" placeholder = "Address">
+    </div>
+        <div>
+        <label far = "sex">Sex</label>
+        <input id="sex" name ="sex" type = "text" placeholder = "Sex">
+    </div>
+    <div>
+        <label far = "salary">Salary</label>
+        <input id="salary" name ="salary" type = "text" placeholder = "Salary">
+    </div>
+    <div>
+        <label far = "super_ssn">Super_ssn</label>
+        <input id="super_ssn" name ="super_ssn" type = "text" placeholder = "Super_ssn">
+    </div>
+    <div>
+        <label far = "dno">Dno</label>
+        <input id="dno" name ="dno" type = "text" placeholder = "Dno">
+    </div>
+    <div>
+        <input type = "submit" value="삽입">
+    </div>
+</form>
+
+<br><br>
+
+<h1>Department 데이터 삽입</h1>
+<form id="employee" method = "post" action ='/'>
+    <div>
+        <label far = "dname">Dname</label>
+        <input id="dname" name ="dname" type = "text" required placeholder = "Dname">
+    </div>
+    <div>
+        <label far = "dnumber">Dnumber</label>
+        <input id="dnumber" name ="dnumber" type = "text" placeholder = "Dnumber">
+    </div>
+    <div>
+        <label far = "mgr_ssn">Mgr_ssn</label>
+        <input id="mgr_ssn" name ="mgr_ssn" type = "text" required placeholder = "Mgr_ssn">
+    </div>
+    <div>
+        <label far = "mgr_start_date">Mgr_start_date</label>
+        <input id="mgr_start_date" name ="mgr_start_date" type = "text" required placeholder = "Mgr_start_date">
+    </div>
+    <div>
+        <input type = "submit" value = "삽입">
+    </div>
+</form>

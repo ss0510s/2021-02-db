@@ -1,0 +1,30 @@
+<h1>{{title}}</h1>
+
+<table>
+    <tr>
+        <td>univ_num</td>
+        <td>univ_name</td>
+        <td>univ_address</td>
+    </tr>
+    {{#each univ}}
+    <!-- univ table의 정보 출력 -->
+        <form method = "post">
+            <tr>
+                <td>{{univ_num}}</td>
+                <td>{{univ_name}}</td>
+                <td>{{univ_address}}</td>
+                <!-- button 클릭시 univ_num 정보 전달 -->
+                <td style = "border: none; margin-left: 10px">
+                    <button
+                    style = "margin-left: 10px;"
+                    name ='delBtn'
+                    type="submit"
+                    value ="{{univ_num}}"
+                    formaction="/delete"
+                    >
+                    삭제</button>
+                </td>
+            </tr>
+        </form>
+    {{/each}}
+</table>
