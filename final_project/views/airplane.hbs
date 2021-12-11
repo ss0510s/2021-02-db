@@ -1,0 +1,156 @@
+<!--- 예약 시스템 레이아웃--->
+<style type = "text/css">
+    #side-navbar {
+        background-color: black;
+        height: 100%;
+        width: 250px;
+        position: fixed;
+    }
+    h2{
+        text-align: center;
+        color: white;
+        padding-top:20px;
+    }
+    h3{
+        text-align: center;
+        color: white;
+        padding-top:10px;
+        padding-bottom: 50px;
+    }
+    .box {
+        border-width:5px;
+        border-style:solid;
+        border-color:black;
+    }
+
+    ul{
+        padding-left: 30px;
+        margin-bottom: 30px;
+        list-style: none;
+    }
+    li:not(:last-child){
+        margin-bottom: 30px;
+        color: white;
+    }
+    li a{
+        color: white;
+        text-decoration: none;
+    }
+    #main {
+        margin-left: 300px;
+        text-align: center;
+
+    }
+    table{
+        margin:auto;
+        text-align: center;
+        border-collapse:collapse}
+    th,td{border:1px solid black;width:150px;height:30px;}
+
+    #Airport_code, #Name, #City, #State {
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .btn .btn2{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+</style>
+
+<html>
+    <div id = "side-navbar">
+        <h2>항공기 운영 시스템</h2>
+        <h3>관리자</h3>
+        <ul>
+            <li><a href='http://localhost:3021/airport'>공항 정보 추가</a></li>
+            <li><a href='http://localhost:3021/airport/update'>공항 정보 수정</a></li>
+            <li><a href='http://localhost:3021/airport/delete'>공항 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/airplane'>항공기 정보 추가</a></li>
+            <li><a href='http://localhost:3021/airplane/update'>항공기 정보 수정</a></li>
+            <li><a href='http://localhost:3021/airplane/delete'>항공기 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/flight'>항공편 정보 추가</a></li>
+            <li><a href='http://localhost:3021/flight/update'>항공편 정보 수정</a></li>
+            <li><a href='http://localhost:3021/flight/delete'>항공편 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/fare'>항공기 요금 추가</a></li>
+            <li><a href='http://localhost:3021/fare/update'>항공기 요금 수정</a></li>
+            <li><a href='http://localhost:3021/fare/delete'>항공기 요금 삭제</a></li>
+        </ul>
+    </div>
+
+    <div id = "main">
+        <h1 class = "box">항공기 type 정보 입력</h1>
+        <form name = "airplane_type" method="post" action='/airplane'>
+            <div>
+                <label far = "Airplane_type_name">Airplane_type_name : </label>
+                <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+                <input id="Airplane_type_name" name ="Airplane_type_name" type = "text" required placeholder = "Airplane_type_name">
+            </div>
+            <div>
+                <label far = "Max_seats">Max_seats : </label>
+                <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+                <input id="Max_seats" name ="Max_seats" type = "text" required placeholder = "Max_seats">
+            </div>
+            <div>
+                <label far = "Company">Company : </label>
+                <input id="Company" name ="Company" type = "text" required placeholder = "Company">
+            </div>
+            <button class='btn' type="submit">입력</button>
+        </form>
+        <h1 class = "box">항공기 정보 입력</h1>
+        <form name = "airplane" method="post" action='/airplane'>
+            <div>
+                <label far = "Airplane_id">Airplane_id : </label>
+                <input id="Airplane_id" name ="Airplane_id" type = "text" required placeholder = "Airplane_id">
+            </div>
+            <div>
+                <label far = "Airplane_type">Airplane_type : </label>
+                <input id="Airplane_type" name ="Airplane_type" type = "text" required placeholder = "Airplane_type">
+            </div>
+            <div>
+                <label far = "Total_number_of_seats">Total_number_of_seats : </label>
+                <input id="Total_number_of_seats" name ="Total_number_of_seats" type = "text" required placeholder = "Total_number_of_seats">
+            </div>
+            <button class='btn2' type="submit">입력</button>
+        </form>
+        <div>
+            <hr style = "display;block;border:black 0 none; border-top:black 3px dotted;height:1px">
+        </div>
+        <h1 class = "box">항공기 type 정보</h1>
+        <table>
+            <tr>
+                <td>Airplane_type_name</td>
+                <td>Max_seats</td>
+                <td>Company</td>
+            </tr>
+            {{#each airplane_type}}
+            <tr>
+                <td>{{Airplane_type_name}}</td>
+                <td>{{Max_seats}}</td>
+                <td>{{Company}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h1 class = "box">항공기 정보</h1>
+        <table>
+            <tr>
+                <td>Airplane_id</td>
+                <td>Airplane_type</td>
+                <td>Total_number_of_seats</td>
+            </tr>
+            {{#each airplane}}
+            <tr>
+                <td>{{Airplane_id}}</td>
+                <td>{{Airplane_type}}</td>
+                <td>{{Total_number_of_seats}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</html>

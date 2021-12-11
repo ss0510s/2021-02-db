@@ -1,0 +1,114 @@
+<!-- 데이터 조회를 위한 테이블 구조 구현-->
+<style type = "text/css">
+    #side-navbar {
+        background-color: black;
+        height: 100%;
+        width: 250px;
+        position: fixed;
+    }
+    h2{
+        text-align: center;
+        color: white;
+        padding-top:20px;
+    }
+    h3{
+        text-align: center;
+        color: white;
+        padding-top:10px;
+        padding-bottom: 50px;
+    }
+    ul{
+        padding-left: 30px;
+        margin-bottom: 30px;
+        list-style: none;
+    }
+    li:not(:last-child){
+        margin-bottom: 30px;
+        color: white;
+    }
+    .box {
+        border-width:5px;
+        border-style:solid;
+        border-color:black;
+    }
+    li a{
+        color: white;
+        text-decoration: none;
+    }
+    #main {
+        margin-left: 300px;
+        text-align: center;
+
+    }
+
+    table{
+        margin:auto;
+        text-align: center;
+        border-collapse:collapse}
+    th,td{border:1px solid black;width:150px;height:30px}
+
+    #h2_id{
+        color: black;
+        text-align: center;
+    }
+    #User_id {
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .btn {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+</style>
+
+<html>
+    <div id = "side-navbar">
+        <h2>항공기 운영 시스템</h2>
+        <h3>user</h3>
+        <ul>
+            <li><a href='http://localhost:3021/reserv'>항공편 예약</a></li>
+            <li><a href='http://localhost:3021/reserv/select'>항공편 조회</a></li>
+            <li><a href='http://localhost:3021/reserv/delete'>항공편 취소</a></li>
+        </ul>
+    </div>
+
+    <div id = "main">
+        <h1 class = 'box'>항공편 예약 취소</h1>
+        <table>
+            <tr>
+                <td>Flight_number</td>
+                <td>Leg_number</td>
+                <td>Date</td>
+                <td>Seat_number</td>
+                <td>Customer_name</td>
+                <td>Customer_phone</td>
+                <td>Customer_phone</td>
+                <td></td>
+            </tr>
+            {{#each seat_reservation}}
+            <form method="post">
+            <tr>
+                <td>{{Flight_number}}</td>
+                <td>{{Leg_number}}</td>
+                <td>{{DATE}}</td>
+                <td>{{Seat_number}}</td>
+                <td>{{Customer_name}}</td>
+                <td>{{Customer_phone}}</td>
+                <td>{{Customer_phone}}</td>
+                <td style = "margin-left: 10px">
+                    <button
+                        style = "margin-left: 10px;"
+                        name ='delBtn'
+                        type="submit"
+                        value ="{{Seat_number}}"
+                        formaction="/reserv/delete"
+                    >
+                    삭제</button>
+                </td>
+            </tr>
+            </form>
+            {{/each}}
+        </table>
+    </div>
+</html>

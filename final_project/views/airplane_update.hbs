@@ -1,0 +1,148 @@
+<!--- 예약 시스템 레이아웃--->
+<style type = "text/css">
+    #side-navbar {
+        background-color: black;
+        height: 100%;
+        width: 250px;
+        position: fixed;
+    }
+    h2{
+        text-align: center;
+        color: white;
+        padding-top:20px;
+    }
+    h3{
+        text-align: center;
+        color: white;
+        padding-top:10px;
+        padding-bottom: 50px;
+    }
+    .box {
+        border-width:5px;
+        border-style:solid;
+        border-color:black;
+    }
+
+    ul{
+        padding-left: 30px;
+        margin-bottom: 30px;
+        list-style: none;
+    }
+    li:not(:last-child){
+        margin-bottom: 30px;
+        color: white;
+    }
+    li a{
+        color: white;
+        text-decoration: none;
+    }
+    #main {
+        margin-left: 300px;
+        text-align: center;
+
+    }
+    table{
+        margin:auto;
+        text-align: center;
+        border-collapse:collapse}
+    th,td{border:1px solid black;width:150px;height:30px;}
+
+    #Airport_code, #Name, #City, #State {
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .btn {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+</style>
+
+<html>
+    <div id = "side-navbar">
+        <h2>항공기 운영 시스템</h2>
+        <h3>관리자</h3>
+        <ul>
+            <li><a href='http://localhost:3021/airport'>공항 정보 추가</a></li>
+            <li><a href='http://localhost:3021/airport/update'>공항 정보 수정</a></li>
+            <li><a href='http://localhost:3021/airport/delete'>공항 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/airplane'>항공기 정보 추가</a></li>
+            <li><a href='http://localhost:3021/airplane/update'>항공기 정보 수정</a></li>
+            <li><a href='http://localhost:3021/airplane/delete'>항공기 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/flight'>항공편 정보 추가</a></li>
+            <li><a href='http://localhost:3021/flight/update'>항공편 정보 수정</a></li>
+            <li><a href='http://localhost:3021/flight/delete'>항공편 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/fare'>항공기 요금 추가</a></li>
+            <li><a href='http://localhost:3021/fare/update'>항공기 요금 수정</a></li>
+            <li><a href='http://localhost:3021/fare/delete'>항공기 요금 삭제</a></li>
+        </ul>
+    </div>
+
+    <div id = "main">
+        <h1 class = "box">항공기 type 정보 수정</h1>
+        <table>
+            <tr>
+                <td>Airplane_type_name</td>
+                <td>Max_seats</td>
+                <td>Company</td>
+                <td></td>
+            </tr>
+            {{#each airplane_type}}
+            <form method = "post">
+            <tr>
+                <td>{{Airplane_type_name}}</td>
+                <td><input type ="text" name = "Max_seats" placeholder="{{Max_seats}}"</td>
+                <td>{{Company}}</td>  
+                <td style = "margin-left: 10px">
+                    <button
+                    style = "margin-left: 10px;"
+                    name ='delBtn1'
+                    type="submit"
+                    value ="{{Airplane_type_name}}"
+                    formaction="/airplane/update"
+                    >
+                    수정</button>
+                </td>
+            </tr>
+            </form>
+            {{/each}}
+            
+        </table>
+        <div>
+            <hr style = "display;block;border:black 0 none; border-top:black 3px dotted;height:1px">
+        </div>
+        <h1 class = "box">항공기 정보 수정</h1>
+        <table>
+            <tr>
+                <td>Airplane_id</td>
+                <td>Airplane_type</td>
+                <td>Total_number_of_seats</td>
+                <td></td>
+            </tr>
+            {{#each airplane}}
+            <form method = "post">
+            <tr>
+                <td>{{Airplane_id}}</td>
+                <td>{{Airplane_type}}</td>
+                <td><input type ="text" name = "Total_number_of_seats" placeholder="{{Total_number_of_seats}}"</td>
+                <td style = "margin-left: 10px">
+                        <button
+                        style = "margin-left: 10px;"
+                        name ='delBtn2'
+                        type="submit"
+                        value ="{{Airplane_id}}"
+                        formaction="/airplane/update"
+                        >
+                        수정</button>
+                </td>
+            </tr>
+            </form>
+            {{/each}}
+    </div>
+</html>

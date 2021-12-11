@@ -1,0 +1,249 @@
+<!--- 예약 시스템 레이아웃--->
+<style type = "text/css">
+    #side-navbar {
+        background-color: black;
+        height: 100%;
+        width: 250px;
+        position: fixed;
+    }
+    h2{
+        text-align: center;
+        color: white;
+        padding-top:20px;
+    }
+    h3{
+        text-align: center;
+        color: white;
+        padding-top:10px;
+        padding-bottom: 50px;
+    }
+    .box {
+        border-width:5px;
+        border-style:solid;
+        border-color:black;
+    }
+
+    ul{
+        padding-left: 30px;
+        margin-bottom: 30px;
+        list-style: none;
+    }
+    li:not(:last-child){
+        margin-bottom: 30px;
+        color: white;
+    }
+    li a{
+        color: white;
+        text-decoration: none;
+    }
+    #main {
+        margin-left: 300px;
+        text-align: center;
+
+    }
+    div{
+        margin-top: 10px;
+    }
+
+    table{
+        margin:auto;
+        text-align: center;
+        border-collapse:collapse}
+    th,td{border:1px solid black;width:150px;height:30px;}
+
+    #Airport_code, #Name, #City, #State {
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .btn {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+</style>
+
+<html>
+    <div id = "side-navbar">
+        <h2>항공기 운영 시스템</h2>
+        <h3>관리자</h3>
+        <ul>
+            <li><a href='http://localhost:3021/airport'>공항 정보 추가</a></li>
+            <li><a href='http://localhost:3021/airport/update'>공항 정보 수정</a></li>
+            <li><a href='http://localhost:3021/airport/delete'>공항 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/airplane'>항공기 정보 추가</a></li>
+            <li><a href='http://localhost:3021/airplane/update'>항공기 정보 수정</a></li>
+            <li><a href='http://localhost:3021/airplane/delete'>항공기 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/flight'>항공편 정보 추가</a></li>
+            <li><a href='http://localhost:3021/flight/update'>항공편 정보 수정</a></li>
+            <li><a href='http://localhost:3021/flight/delete'>항공편 정보 삭제</a></li>
+        </ul>
+        <ul>
+            <li><a href='http://localhost:3021/fare'>항공기 요금 추가</a></li>
+            <li><a href='http://localhost:3021/fare/update'>항공기 요금 수정</a></li>
+            <li><a href='http://localhost:3021/fare/delete'>항공기 요금 삭제</a></li>
+        </ul>
+    </div>
+
+    <div id = "main">
+        <h1 class = "box">항공사 정보 입력</h1>
+        <form name = "flight" method="post" action='/flight'>
+            <div>
+                <label far = "Flight_number">Flight_number : </label>
+                <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+                <input id="Flight_number" name ="Flight_number" type = "text" required placeholder = "Flight_number">
+            </div>
+            <div>
+                <label far = "Airline">Airline : </label>
+                <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+                <input id="Airline" name ="Airline" type = "text" required placeholder = "Airline">
+            </div>
+            <div>
+                <label far = "Weekdays">Weekdays : </label>
+                <input id="Weekdays" name ="Weekdays" type = "text" placeholder = "Weekdays">
+            </div>
+            <button class='btn' type="submit">입력</button>
+        </form>
+        <h1 class = "box">항공편 정보 입력</h1>
+        <form name = "flight_leg" method="post" action='/flight'>
+            <div>
+                <label far = "Flight_number">Flight_number : </label>
+                <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+                <input id="Flight_number" name ="Flight_number" type = "text" required placeholder = "Flight_number">
+            </div>
+            <div>
+                <label far = "Leg_number">Leg_number : </label>
+                <input id="Leg_number" name ="Leg_number" type = "text" required placeholder = "Leg_number">
+            </div>
+            <div>
+                <label far = "Departure_airport_code">Departure_airport_code : </label>
+                <input id="Departure_airport_code" name ="Departure_airport_code" type = "text" required placeholder = "Departure_airport_code">
+            </div>
+            <div>
+                <label far = "Scheduled_department_time">Scheduled_department_time : </label>
+                <input id="Scheduled_department_time" name ="Scheduled_department_time" type = "time" required placeholder = "Scheduled_department_time">
+            </div>
+            <div>
+                <label far = "Arrival_airport_code">Arrival_airport_code : </label>
+                <input id="Arrival_airport_code" name ="Arrival_airport_code" type = "text" required placeholder = "Arrival_airport_code">
+            </div>
+            <div>
+                <label far = "Scheduled_arrival_time">Scheduled_arrival_time : </label>
+                <input id="Scheduled_arrival_timee" name ="Scheduled_arrival_time" type = "time" required placeholder = "Scheduled_arrival_time">
+            </div>
+            <button class='btn' type="submit">입력</button>
+        </form>
+        <h1 class = "box">항공편 instance 정보 입력</h1>
+        <form name = "leg_instance" method="post" action='/flight'>
+            <div>
+                <label far = "Flight_number">Flight_number : </label>
+                <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+                <input id="Flight_number" name ="Flight_number" type = "text" required placeholder = "Flight_number">
+            </div>
+            <div>
+                <label far = "Leg_number">Leg_number : </label>
+                <!-- input으로 데이터를 입력 받음. fname은 non null 이므로 required -->
+                <input id="Leg_number" name ="Leg_number" type = "text" required placeholder = "Leg_number">
+            </div>
+            <div>
+                <label far = "Date">Date : </label>
+                <input id="Date" name ="Date" type = "date" required placeholder = "Date">
+            </div>
+            <div>
+                <label far = "Number_of_available_seats">Number_of_available_seats : </label>
+                <input id="Number_of_available_seats" name ="Number_of_available_seats" type = "text" required placeholder = "Number_of_available_seats">
+            </div>
+            <div>
+                <label far = "Airplane_id">Airplane_id : </label>
+                <input id="Airplane_id" name ="Airplane_id" type = "text" required placeholder = "Airplane_id">
+            </div> 
+            <div>
+                <label far = "Departure_airport_code">Departure_airport_code : </label>
+                <input id="Departure_airport_code" name ="Departure_airport_code" type = "text" required placeholder = "Departure_airport_code">
+            </div>
+            <div>
+                <label far = "Departure_time">Departure_time : </label>
+                <input id="Departure_time" name ="Departure_time" type = "time" required placeholder = "Departure_time">
+            </div>
+            <div>
+                <label far = "Arrival_airport_code">Arrival_airport_code : </label>
+                <input id="Arrival_airport_code" name ="Arrival_airport_code" type = "text" required placeholder = "Arrival_airport_code">
+            </div>
+            <div>
+                <label far = "Arrival_time">Arrival_time : </label>
+                <input id="Arrival_time" name ="Arrival_time" type = "time" required placeholder = "Arrival_time">
+            </div>
+            <button class='btn' type="submit">입력</button>
+        </form>
+        <div>
+            <hr style = "display;block;border:black 0 none; border-top:black 3px dotted;height:1px">
+        </div>
+        <h1 class = "box">항공사 정보</h1>
+        <table>
+            <tr>
+                <td>Flight_number</td>
+                <td>Airline</td>
+                <td>Weekdays</td>
+            </tr>
+            {{#each flight}}
+            <tr>
+                <td>{{Flight_number}}</td>
+                <td>{{Airline}}</td>
+                <td>{{Weekdays}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h1 class = "box">항공편 정보</h1>
+        <table>
+            <tr>
+                <td>Flight_number</td>
+                <td>Leg_number</td>
+                <td>Departure_airport_code</td>
+                <td>Scheduled_department_time</td>
+                <td>Arrival_airport_code</td>
+                <td>Scheduled_arrival_time</td>
+            </tr>
+            {{#each flight_leg}}
+            <tr>
+                <td>{{Flight_number}}</td>
+                <td>{{Leg_number}}</td>
+                <td>{{Departure_airport_code}}</td>
+                <td>{{Scheduled_department_time}}</td>
+                <td>{{Arrival_airport_code}}</td>
+                <td>{{Scheduled_arrival_time}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h1 class = "box">항공편 instance 정보</h1>
+        <table>
+            <tr>
+                <td>Flight_number</td>
+                <td>Leg_number</td>
+                <td>Date</td>
+                <td>Number_of_available_seats</td>
+                <td>Airplane_id</td>
+                <td>Departure_airport_code</td>
+                <td>Departure_time</td>
+                <td>Arrival_airport_code</td>
+                <td>Arrival_time</td>
+            </tr>
+            {{#each leg_instance}}
+            <tr>
+                <td>{{Flight_number}}</td>
+                <td>{{Leg_number}}</td>
+                <td>{{DATE}}</td>
+                <td>{{Number_of_available_seats}}</td>
+                <td>{{Airplane_id}}</td>
+                <td>{{Departure_airport_code}}</td>
+                <td>{{Departure_time}}</td>
+                <td>{{Arrival_airport_code}}</td>
+                <td>{{Arrival_time}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        
+    </div>
+</html>

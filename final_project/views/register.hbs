@@ -1,0 +1,67 @@
+<!--- 회원가입 화면 레이아웃 --->
+<style>
+    body {
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .frame {
+        border-radius: 15px;
+        box-sizing: border-box;
+        border: 1px solid #757575;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 350px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #id, #passwd, #User_name, #User_phone, #ssn, #Role, .btn {
+        font-size: 25px;
+        margin-top: 20px;
+    }
+    .pwd .name .phone .ssn .role {
+        margin-top: 15px;
+    }
+    .btn {
+        width: 322px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="frame">
+    <h1>회원가입</h1>
+    <form id="user_register" method="post" action='/register'>
+        <div class="id">
+        <input id="id" name="id" type="text" required placeholder="아이디">
+        </div>
+        <div class="pwd">
+        <input id="passwd" name='passwd' type="password" required placeholder="비밀번호">
+        </div>
+        <div class="name">
+        <input id="User_name" name='User_name' type="text" required placeholder="이름">
+        </div>
+        <div class="phone">
+        <input id="User_phone" name='User_phone' type="text" required placeholder="전화번호">
+        </div>
+        <div class="ssn">
+        <input id="ssn" name='ssn' type="text" required placeholder="주민등록번호">
+        </div>
+        <div class="Role">
+        <select id="Role" name = 'Role'>
+            <option value ='user'>user</option>
+            <option value ='admin'>admin</option>
+        </select>
+        </div>
+        <div></div>
+        <button class='btn' type="submit">회원가입</button>
+    </form>
+</div>
